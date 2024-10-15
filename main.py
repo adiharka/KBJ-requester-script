@@ -1,5 +1,5 @@
 # Set the interval in seconds
-interval = 3
+# interval = 3
 # API endpoint url
 endpoint = 'https://dummyjson.com/users/'
 
@@ -20,6 +20,6 @@ def send_api_request():
   print(f"Response status code: {response.status_code}")
   print('\n')
 
-while True:
-  send_api_request()
-  time.sleep(interval)
+# while True:
+send_api_request()
+#   time.sleep(interval)
