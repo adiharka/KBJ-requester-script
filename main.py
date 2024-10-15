@@ -3,6 +3,10 @@
 # API endpoint url
 endpoint = 'https://dummyjson.com/users/'
 
+from flask import Flask
+
+app = Flask(__name__)
+
 import requests
 import time
 
@@ -19,7 +23,17 @@ def send_api_request():
   # Print the response status code
   print(f"Response status code: {response.status_code}")
   print('\n')
+  return response
 
 # while True:
 send_api_request()
 #   time.sleep(interval)
+
+@app.route("/hello")
+def hello_world():
+    return "<p>Hello, World!</p>"
+
+@app.route("/")
+def api_requester():
+    res = send_api_request()
+    return res
