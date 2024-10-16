@@ -7,7 +7,7 @@ import queue
 app = Flask(__name__)
 
 # Set the initial interval in seconds
-interval = 3
+interval = 60
 # API endpoint URL
 endpoint = 'https://dummyjson.com/users/'
 
@@ -20,7 +20,6 @@ def randomize_slug():
 
 def send_api_request():
     # while not stop_event.is_set():
-    for _ in range(3):
         slug = randomize_slug()
         response = requests.get(endpoint + slug)
         
@@ -33,7 +32,6 @@ def send_api_request():
         
         # Put the details in the queue
         request_queue.put(details)
-        time.sleep(interval)
 
 @app.route("/hello")
 def hello_world():
@@ -47,7 +45,10 @@ def start_requests():
     # thread = threading.Thread(target=send_api_request)
     # thread.daemon = True
     # thread.start()
-    send_api_request()
+    for _ in range(10):
+        send_api_request()
+        time.sleep(interval)
+
     return jsonify({"message": "Started API requests!"})
 
 @app.route("/set_interval", methods=["POST"])
