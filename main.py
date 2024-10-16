@@ -1,7 +1,7 @@
 from flask import Flask, jsonify, render_template, request
 import requests
 import time
-import threading
+# import threading
 import queue
 
 app = Flask(__name__)
@@ -13,7 +13,7 @@ endpoint = 'https://dummyjson.com/users/'
 
 # Queue to hold request details
 request_queue = queue.Queue()
-stop_event = threading.Event()
+# stop_event = threading.Event()
 
 def randomize_slug():
     return str(time.time()).replace(".", "")
@@ -41,12 +41,13 @@ def hello_world():
 
 @app.route("/start")
 def start_requests():
-    global stop_event
-    stop_event.clear()  # Reset the stop event
-    # Start the API request thread
-    thread = threading.Thread(target=send_api_request)
-    thread.daemon = True
-    thread.start()
+    # global stop_event
+    # stop_event.clear()  # Reset the stop event
+    # # Start the API request thread
+    # thread = threading.Thread(target=send_api_request)
+    # thread.daemon = True
+    # thread.start()
+    send_api_request()
     return jsonify({"message": "Started API requests!"})
 
 @app.route("/set_interval", methods=["POST"])
@@ -58,7 +59,7 @@ def set_interval():
 
 @app.route("/stop")
 def stop_requests():
-    stop_event.set()  # Signal the thread to stop
+    # stop_event.set()  # Signal the thread to stop
     return jsonify({"message": "Stopped API requests!"})
 
 @app.route("/")
