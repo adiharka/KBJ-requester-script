@@ -19,7 +19,8 @@ def randomize_slug():
     return str(time.time()).replace(".", "")
 
 def send_api_request():
-    while not stop_event.is_set():
+    # while not stop_event.is_set():
+    for _ in range(3):
         slug = randomize_slug()
         response = requests.get(endpoint + slug)
         
