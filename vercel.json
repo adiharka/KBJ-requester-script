@@ -1,14 +1,12 @@
 {
-    "builds": [
+    "crons": [
         {
-            "src": "main.py",
-            "use": "@vercel/python"
-        }
-    ],
-    "routes": [
+            "path": "/api/hello",
+            "schedule": "0 5 * * *"
+        },
         {
-            "src": "/(.*)",
-            "dest": "main.py"
+            "path": "/api/requester",
+            "schedule": "0 5 * * *"
         }
     ]
 }
