@@ -2,7 +2,27 @@
     "crons": [
         {
             "path": "/api/requester",
-            "schedule": "1-5 4 * * *"
+            "schedule": "0 1 * * *"
+        },
+        {
+            "path": "/api/requester",
+            "schedule": "0 2 * * *"
+        },
+        {
+            "path": "/api/requester",
+            "schedule": "0 3 * * *"
+        },
+        {
+            "path": "/api/requester",
+            "schedule": "0 4 * * *"
+        },
+        {
+            "path": "/api/requester",
+            "schedule": "0 5 * * *"
+        },
+        {
+            "path": "/api/requester",
+            "schedule": "0 6 * * *"
         }
     ]
 }
