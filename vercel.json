@@ -7,22 +7,6 @@
         {
             "path": "/api/requester",
             "schedule": "0 2 * * *"
-        },
-        {
-            "path": "/api/requester",
-            "schedule": "0 3 * * *"
-        },
-        {
-            "path": "/api/requester",
-            "schedule": "0 4 * * *"
-        },
-        {
-            "path": "/api/requester",
-            "schedule": "0 5 * * *"
-        },
-        {
-            "path": "/api/requester",
-            "schedule": "0 6 * * *"
         }
     ]
 }
